@@ -138,122 +138,6 @@ body {
   background-color: #0d8bf2;
 }
 
-.rolled-number {
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.game-message {
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.magnet {
-  background-color: black;
-  position: relative;
-  overflow: hidden;
-}
-
-.magnet::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('magnet.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: rotate(0deg);
-  animation: magnet 5s linear infinite;
-}
-
-@keyframes magnet {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.player-icon {
-  position: relative;
-  z-index: 999;
-}
-
-/* New Space Theme */
-.body {
-  font-family: Arial, sans-serif;
-  background-color: #000000;
-  margin: 0;
-  padding: 20px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.board {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.game-board {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #555;
-  padding: 10px;
-  width: fit-content;
-  background-color: #000000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.row {
-  display: flex;
-}
-
-.cell {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #555;
-  font-weight: bold;
-  font-size: 18px;
-  transition: background-color 0.5s;
-  background-color: #000000;
-}
-
-.start,
-.end {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.start {
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-  border-radius: 50%;
-}
-
-.end {
-  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); 
-  border-radius: 50%;
-}
-
 @keyframes spin-reverse {
   0% {
     transform: rotate(0deg);
@@ -369,4 +253,18 @@ body {
 .player-icon {
   position: relative;
   z-index: 999;
+  transition: transform 0.5s ease-in-out;
+}
+
+.moving .player-icon {
+  animation: movePlayerAnimation 1s linear;
+}
+
+@keyframes movePlayerAnimation {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.5) rotate(360deg);
+  }
 }
